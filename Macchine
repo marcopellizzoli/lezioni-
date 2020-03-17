@@ -1,0 +1,61 @@
+package Lezione3;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
+public class Es8 {
+	static ArrayList<Integer> classifica=new ArrayList<Integer>();
+	public static int partenza()
+	{
+		Random in=new Random();
+		int serbatoio=in.nextInt(27)+34;
+		int pieno=0;
+		int consumo=in.nextInt(12)+14;
+		int start=in.nextInt(42)+9;
+		int kmDisponibili;
+		if (serbatoio>=start) 
+		{
+			pieno+=start;
+		}
+		else 
+		{
+			pieno=start-(start-serbatoio);
+		}
+		System.out.println("consumo="+consumo);
+		System.out.println("serbatoio="+serbatoio);
+		System.out.println("rifornimento start"+start);
+		kmDisponibili=serbatoio*consumo;
+		classifica.add(kmDisponibili);
+		return kmDisponibili;
+	}
+
+	public static void vai(int kmDisponibili) 
+	{
+		int kmPercorsi=0;
+		for(int i=0;i<kmDisponibili;i++) 
+		{
+			kmPercorsi++;
+		}
+		System.out.println("Km percorsi"+kmPercorsi+"km");
+	}	
+	public static void main(String[] args) {
+		for(int x=0;x<3;x++)
+		{
+			System.out.println("N."+x);
+			vai(partenza());
+		}
+
+		int numero=0;
+		Collections.sort(classifica);
+		for(int i=classifica.size()-1;i>=0;i--) 
+		{
+			numero++;
+			System.out.println(classifica.get(i)+"   "+numero +"classificato");
+
+		}
+
+	
+	}
+
+}
