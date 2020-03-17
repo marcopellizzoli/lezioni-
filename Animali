@@ -1,0 +1,52 @@
+package java_01;
+
+import java.util.Scanner;
+
+public class Lezione2EsD 
+{
+
+	public static String cane()
+	{
+		System.out.println("cane è un mammifero");
+		return "bau";
+	}
+	public static String gatto() 
+	{
+		System.out.println("gatto è un felino");
+		return "miao";
+	}
+	public static void  mucca()
+	{
+		System.out.println("mucca è un mammifero e fa muu");
+	}
+	public static void  pecora()
+	{
+		System.out.println("pecora è un mammifero e fa bee");
+	}
+	public static void main(String[] args) 
+	{
+		Scanner in=new Scanner (System.in);
+		System.out.println("mucca,pecora,gatto o cane?");
+		String input =in.nextLine();
+		if(input.contentEquals("cane"))
+		{
+			String versoCane=cane();
+			System.out.println(versoCane);
+		}
+		else if (input.contentEquals("gatto"))
+		{
+			String versoGatto=gatto();
+			System.out.println(versoGatto);
+		}
+		else if(input.equals("pecora"))
+		{
+			pecora();
+		}
+		else if(input.equals("mucca"))
+		{
+			mucca();
+		}
+		else System.out.println("errore");
+		in.close();
+	}
+}
